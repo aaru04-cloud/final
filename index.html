@@ -1,0 +1,508 @@
+<!-- FULL UPDATED HTML BELOW -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ultimate Romantic Birthday Website</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%; overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000; color: #fff; user-select: none;
+    }
+    body {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%);
+      perspective: 1500px;
+    }
+    .slide {
+      position: absolute;
+      width: 100%; height: 100%;
+      border-radius: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 3rem;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      flex-direction: row;
+    }
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .slide h1, .slide h2 {
+      z-index: 2;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+      position: absolute;
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+    .slide .heading-text {
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      max-width: 800px;
+      font-size: 1.2rem;
+      padding: 0 1rem;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    .slide-content {
+      z-index: 2;
+      flex: 1;
+      padding: 1rem;
+      margin-top: 120px;
+    }
+    .slide-content p {
+      font-size: 1.2rem;
+    }
+    .slide-image {
+      width: 350px;
+      height: auto;
+      max-height: 90%;
+      margin-left: 2rem;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 40px 20px rgba(255,255,255,0.6);
+      border-radius: 1rem;
+    }
+    .glitter-container, .butterfly-container {
+      position: absolute;
+      width: 100%; height: 100%;
+      top: 0; left: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .star-glitter {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616489.png') no-repeat center/contain;
+      animation: fall-stars linear infinite;
+      filter: drop-shadow(0 0 8px #fff) brightness(2) contrast(2);
+      z-index: 9990;
+    }
+    @keyframes fall-stars {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+    .butterfly-fly {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: url('assets/butterfly_graphic.png') no-repeat center / contain;
+      animation: fly-up 20s linear forwards, flap 1s ease-in-out infinite, shimmer 6s linear infinite;
+      filter: drop-shadow(0 0 8px #fff5f5);
+      z-index: 9991;
+    }
+    @keyframes fly-up {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-150vh) rotate(0deg); opacity: 0; }
+    }
+    @keyframes flap {
+      0%, 100% { transform: scaleX(1) rotate(0deg); }
+      50% { transform: scaleX(-1) rotate(0deg); }
+    }
+    @keyframes shimmer {
+      0% { filter: hue-rotate(0deg); }
+      25% { filter: hue-rotate(60deg); }
+      50% { filter: hue-rotate(120deg); }
+      75% { filter: hue-rotate(180deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+    #nextBtn {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 2rem;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      cursor: pointer;
+      z-index: 10000;
+    }
+    .birthday-essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+.beginning essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+    .Getting Closer essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+    .sweet memories essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+    .Adventures essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+     .Laughs & Joy essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+     .Moments Captured essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+     .Forever Feels essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+     . Final Surprise essay {
+  margin-top: 180px; /* Adjust as needed */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+  </style>
+</head>
+<body>
+<div id="app">
+  <div id="slides">
+
+    <!-- Slide Template (Repeat for all 9 slides) -->
+    <section class="slide active">
+      <h1>Happy Birthday 🎉</h1>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to me.</p>
+      <div class="birthday-essay">
+  <p>
+    The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+</div>
+
+      <div class="slide-content">
+      </div>
+      <img src="assets/birthday-collage.png" alt="Birthday Collage" class="slide-image" />
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 1 — The Beginning 💖</h2>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to me.</p>
+      <div class="beginning essay">
+  <p>
+   The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+</div>
+
+      <div class="slide-content">
+      </div>
+      <video src="assets/Untitled design.mp4" autoplay loop muted class="slide-image"></video>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 2 — Getting Closer 🥰</h2>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to me.</p>
+      <div class="Getting Closer essay">
+  <p>
+   The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+</div>
+
+      <div class="slide-content">
+      </div>
+      <img src="assets/3rd slide.png" class="slide-image" />
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 3 — sweet memories 🌸</h2>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to me.</p>
+      <div class="sweet memories essay">
+  <p>
+   The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+</div>
+
+      <div class="slide-content">
+      </div>
+      <img src="assets/4th slide.png" class="slide-image" />
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 4 — Adventures 🌍</h2>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to me.</p>
+     <div class="Adventures essay">
+  <p>
+  The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+</div>
+
+      <div class="slide-content">
+      </div>
+      <img src="assets/5th slide.png" class="slide-image" />
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 5 — Laughs & Joy 😄</h2>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to me.</p>
+     <div class="Laughs & Joy essay">
+  <p>
+    The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+     </div>
+
+      <div class="slide-content">
+      </div>
+      <img src="assets/6th slide.png" class="slide-image" />
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 6 — Moments Captured 🎥</h2>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to me.</p>
+     <div class="Moments Captured essay">
+  <p>
+   The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+     </div>
+
+      <div class="slide-content">
+      </div>
+      <video src="assets/7th slide.mp4" autoplay loop muted class="slide-image"></video>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 7 — Forever Feels 🕊️</h2>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to me.</p>
+     <div class="Forever Feels essay">
+  <p>
+   The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+     </div>
+
+      <div class="slide-content">
+      </div>
+      <video src="assets/8th slide.mp4" autoplay loop muted class="slide-image"></video>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+    <section class="slide">
+      <h2>Month 8 — Final Surprise 🎁</h2>
+      <p class="heading-text">Every moment we've shared is a memory etched into my heart. From smiles to surprises, laughter to love, each step of this journey has been beautiful. Today is your special day, and this little surprise is just a glimpse of how much you mean to meguhoiwdohwdohcowjcowdcjdosojcijsdjcposdjojcsd  jhweohico cowejihcohiohhhuiuiuhcodicisjocisdcoijoicjwijcwencwic c wec wej we09uoiwejoscoidjcwejc wecjweojicoiwejcjoiejwdoijioasjcoijsdoicwceoijcoidajsiocjdsoijciodsjciodsjcosihjcishdciojdsiocjsdiohcdsiohcsocjosidijiijcjdskjjsdcoidosj.</p>
+      <div class="Final Surprise essay">
+  <p>
+ The first month of a relationship is a time of discovery and excitement, filled with butterflies and anticipation. Every moment feels magical, from stolen glances to late-night conversations that stretch into the early hours. Each smile and touch seems to carry a deeper meaning as you both begin to understand each other’s quirks, dreams, and stories. Dates feel like small adventures, where even simple activities become special simply because you’re sharing them together. There’s a sense of vulnerability as you open up, hoping your feelings are returned in kind. You learn to read each other’s expressions, finding comfort in every laugh and reassurance in every gentle word. The first month is about building trust and laying the foundation for something deeper, all while basking in the glow of new love. It’s the beginning of a beautiful journey, a time when hearts meet and everything feels possible.
+  </p>
+      </div>
+
+      <div class="slide-content">
+        <div id="finalQuestion" style="margin-top: 1rem;">
+  <p style="font-size: 1.4rem; font-weight: bold; margin-bottom: 1rem;">============================>Will you let me be your forever irritator? 😝</p>
+<div id="buttonContainer" style="position: relative; height: 100px; width: 100%; max-width: 300px; margin: auto;">
+  <button id="irritatorYes" style="padding: 0.5rem 1rem; border-radius: 1rem; background: #FF69B4; border: none; color: white; font-size: 1rem; cursor: pointer; position: relative; z-index: 1;">Yes</button>
+
+  <button id="irritatorNo" style="padding: 0.5rem 1rem; border-radius: 1rem; background: #8DB600; border: none; color: white; font-size: 1rem; cursor: pointer; position: absolute; left: 150px; top: 0px;">No</button>
+</div>
+
+</div>
+
+<!-- Hidden video -->
+<video id="finalVideo" src="assets/final-surprise-video.mp4" autoplay loop muted style="display:none; margin-top:2rem; width: 350px; border-radius: 1rem; box-shadow: 0 0 30px rgba(255,255,255,0.7);"></video>
+
+      </div>
+      <div class="glitter-container"></div>
+      <div class="butterfly-container"></div>
+    </section>
+
+  </div>
+  <button id="nextBtn">Next</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let currentSlide = 0;
+  const nextBtn = document.getElementById('nextBtn');
+
+  nextBtn.addEventListener('click', () => {
+    if (currentSlide < slides.length - 1) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide++;
+      slides[currentSlide].classList.add('active');
+    } else {
+      nextBtn.disabled = true;
+      nextBtn.style.opacity = 0.5;
+    }
+  });
+
+  function createGlitter(container) {
+    for (let i = 0; i < 400; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star-glitter');
+      star.style.left = `${Math.random() * 100}%`;
+      star.style.top = `${Math.random() * -100}vh`;
+      star.style.animationDuration = `${4 + Math.random() * 3}s`;
+      container.appendChild(star);
+    }
+  }
+
+  document.querySelectorAll('.glitter-container').forEach(container => {
+    createGlitter(container);
+    const irritatorYes = document.getElementById("irritatorYes");
+const irritatorNo = document.getElementById("irritatorNo");
+const finalVideo = document.getElementById("finalVideo");
+
+irritatorYes.addEventListener("click", () => {
+  finalVideo.style.display = "block";
+});
+
+function moveIrritatorNo() {
+  const btn = irritatorNo;
+  const x = Math.random() * (window.innerWidth - btn.offsetWidth - 40);
+  const y = Math.random() * (window.innerHeight - btn.offsetHeight - 40);
+  btn.style.left = `${x}px`;
+  btn.style.top = `${y}px`;
+}
+
+irritatorNo.addEventListener("mouseover", moveIrritatorNo);
+irritatorNo.addEventListener("click", moveIrritatorNo);
+
+  });
+</script>
+  <script>
+  function isOverlapping(rect1, rect2) {
+  return !(
+    rect1.right < rect2.left ||
+    rect1.left > rect2.right ||
+    rect1.bottom < rect2.top ||
+    rect1.top > rect2.bottom
+  );
+}
+
+function moveIrritatorNo() {
+  const btn = irritatorNo;
+  const parent = btn.parentElement;
+  const yesBtn = irritatorYes;
+
+  const maxX = parent.offsetWidth - btn.offsetWidth;
+  const maxY = parent.offsetHeight - btn.offsetHeight;
+
+  const yesRect = yesBtn.getBoundingClientRect();
+  const parentRect = parent.getBoundingClientRect();
+
+  // Convert yesBtn position relative to parent container:
+  const yesRelativeRect = {
+    left: yesRect.left - parentRect.left,
+    right: yesRect.right - parentRect.left,
+    top: yesRect.top - parentRect.top,
+    bottom: yesRect.bottom - parentRect.top,
+  };
+
+  let x, y;
+  let tries = 0;
+
+  do {
+    x = Math.random() * maxX;
+    y = Math.random() * maxY;
+
+    const noRect = {
+      left: x,
+      right: x + btn.offsetWidth,
+      top: y,
+      bottom: y + btn.offsetHeight,
+    };
+
+    tries++;
+    if (tries > 100) break; // safety break to avoid infinite loops
+  } while (isOverlapping(noRect, yesRelativeRect));
+
+  btn.style.left = `${x}px`;
+  btn.style.top = `${y}px`;
+}
+
+  irritatorNo.addEventListener("mouseover", moveIrritatorNo);
+  irritatorNo.addEventListener("click", moveIrritatorNo);
+</script>
+
+
+</body>
+</html>
